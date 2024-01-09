@@ -1,4 +1,5 @@
 <script lang="ts">
+import BotaoPrincipal from "./BotaoPrincipal.vue";
 import SelecionarIngredientes from "./SelecionarIngredientes.vue"
 import SuaLista from "./SuaLista.vue";
 import Tag from "./Tag.vue";
@@ -8,7 +9,7 @@ import Tag from "./Tag.vue";
         ingredientes: [] as string[]
       }
     },
-    components: { SelecionarIngredientes, Tag, SuaLista },
+    components: { SelecionarIngredientes, Tag, SuaLista, BotaoPrincipal },
     methods: {
       adicionarIngrediente(ingrediente: string) {
         this.ingredientes.push(ingrediente)
@@ -28,6 +29,8 @@ import Tag from "./Tag.vue";
       @adicionar-ingrediente="adicionarIngrediente"
       @remover-ingrediente="removerIngrediente"
     />
+
+    <BotaoPrincipal :texto="'Buscar receitas!'" />
   </main>
 </template>
 
