@@ -8,7 +8,15 @@ import Tag from "./Tag.vue";
         ingredientes: [] as string[]
       }
     },
-    components: { SelecionarIngredientes, Tag, SuaLista }
+    components: { SelecionarIngredientes, Tag, SuaLista },
+    methods: {
+      adicionarIngrediente(ingrediente: string) {
+        this.ingredientes.push(ingrediente)
+      },
+      removerIngrediente(ingrediente: string) {
+        this.ingredientes = this.ingredientes.filter(i => ingrediente !== i)
+      }
+    }
   }
 </script>
 
@@ -16,7 +24,10 @@ import Tag from "./Tag.vue";
   <main class="conteudo-principal">
     <SuaLista :ingredientes="ingredientes" />
 
-    <SelecionarIngredientes @adicionar-ingrediente="ingredientes.push($event)"/>
+    <SelecionarIngredientes
+      @adicionar-ingrediente="adicionarIngrediente"
+      @remover-ingrediente="removerIngrediente"
+    />
   </main>
 </template>
 
