@@ -5,7 +5,7 @@ import Tag from "./Tag.vue";
   export default {
     data() {
       return {
-        ingredientes: ['Alho', 'Manteiga', 'Orégano']
+        ingredientes: [] as string[]
       }
     },
     components: { SelecionarIngredientes, Tag, SuaLista }
@@ -16,7 +16,7 @@ import Tag from "./Tag.vue";
   <main class="conteudo-principal">
     <SuaLista :ingredientes="ingredientes" />
 
-    <SelecionarIngredientes />
+    <SelecionarIngredientes @adicionar-ingrediente="ingredientes.push($event)"/>
   </main>
 </template>
 
